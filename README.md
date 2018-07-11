@@ -16,3 +16,7 @@ Currently supported is:
 ```terminal
 $ ./gradlew build # A .war is produced in build/libs/
 ```
+
+### TODO
+
+* Add Java 11+ support or at least verify it
