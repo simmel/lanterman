@@ -1,0 +1,16 @@
+// vim: sw=2 et
+buildscript {
+  repositories {
+    maven {
+      url "https://maven.it.su.se/repository/public/"
+    }
+    mavenCentral()
+  }
+}
+
+repositories {
+  maven {
+    url "https://maven.it.su.se/repository/public/"
+  }
+  mavenCentral()
+}
