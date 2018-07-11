@@ -8,6 +8,7 @@ Currently supported is:
 * [Java Commons Logging](https://commons.apache.org/logging)
 * [Java Util Logging Interface (JULI)](https://docs.oracle.com/javase/8/docs/api/java/util/logging/package-summary.html)
 * [Log4j2](https://logging.apache.org/log4j/2.x/)
+* [Log4j](https://logging.apache.org/log4j/1.2/)
 * [Logback](https://logback.qos.ch/)
 * [SLF4J](https://www.slf4j.org/)
 
