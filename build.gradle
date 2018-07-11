@@ -8,6 +8,13 @@ buildscript {
   }
 }
 
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'war'
+
+mainClassName = "se.su.it.logging.Lanterman"
+version = "1.0.0-SNAPSHOT"
+
 repositories {
   maven {
     url "https://maven.it.su.se/repository/public/"
