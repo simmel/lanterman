@@ -1,11 +1,18 @@
 package se.su.it.logging;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @SpringBootApplication
-class Lanterman {
+class Lanterman extends SpringBootServletInitializer {
+
+  @Override
+  protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+    return application.sources(Lanterman.class);
+  }
 
   @RequestMapping("/")
   String home() {
