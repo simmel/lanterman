@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @SpringBootApplication
-class Lanterman extends SpringBootServletInitializer {
+public class Lanterman extends SpringBootServletInitializer {
 
   private static final java.util.logging.Logger JUL = java.util.logging.Logger.getLogger(Thread.currentThread().getStackTrace()[1].getClassName());
   private static final org.apache.commons.logging.Log JCL = org.apache.commons.logging.LogFactory.getLog(Thread.currentThread().getStackTrace()[1].getClassName());
