@@ -1,8 +1,9 @@
 lanterman
 ---
 
-A simple war which can be deployed to test all known Java logging libraries to
-see that you've caught them all with your configuration.
+A simple deployable and executable war which can be deployed to test all known
+Java logging libraries to see that you've caught them all with your
+configuration.
 
 Currently supported is:
 * [Java Commons Logging](https://commons.apache.org/logging)
@@ -16,6 +17,7 @@ Currently supported is:
 
 ```terminal
 $ ./gradlew build # A .war is produced in build/libs/
+$ java -jar build/libs/lanterman*.war
 ```
 
 ### TODO
