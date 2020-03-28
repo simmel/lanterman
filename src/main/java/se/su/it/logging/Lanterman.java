@@ -4,6 +4,7 @@ import org.springframework.boot.autoconfigure.*;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.web.bind.annotation.*;
+import java.beans.Statement;
 
 @RestController
 @SpringBootApplication
@@ -21,12 +22,18 @@ public class Lanterman extends SpringBootServletInitializer {
   }
 
   @RequestMapping("/")
-  String home() {
-    JCL.info("Hello from JCL");
-    JUL.info("Hello from JULI");
-    log4j2.info("Hello from Log4j2");
-    log4j.info("Hello from Log4j");
-    slf4j.info("Hello from SLF4j");
+  String home() throws Exception {
+    Object[] loggers = {
+      JUL,
+      JCL,
+      log4j2,
+      log4j,
+      slf4j,
+    };
+    for (Object logger : loggers) {
+      String[] messages = {"Hello from " + logger.getClass().getName()};
+      new Statement(logger, "info", messages).execute();
+    }
     System.out.println("Hello from STDOUT");
     System.err.println("Hello from STDERR");
     return "My log hears things I cannot hear. But my log tells me about the sounds, about the new words. Even though it has stopped growing larger, my log is aware.\n";
