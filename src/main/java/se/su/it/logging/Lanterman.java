@@ -5,6 +5,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.web.bind.annotation.*;
 import java.beans.Statement;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @SpringBootApplication
@@ -23,16 +25,20 @@ public class Lanterman extends SpringBootServletInitializer {
 
   @RequestMapping("/")
   String home() throws Exception {
-    Object[] loggers = {
-      JUL,
-      JCL,
-      log4j2,
-      log4j,
-      slf4j,
-    };
-    for (Object logger : loggers) {
+    Map<Object, String[]> loggers = new HashMap<>();
+    loggers.put(JUL, new String[] {"finest", "finer", "config", "info", "warning", "severe"});
+    loggers.put(JCL, new String[] {"trace", "debug", "info", "warn", "error", "fatal"});
+    loggers.put(log4j2, new String[] {"trace", "debug", "info", "warn", "error", "fatal"});
+    loggers.put(log4j, new String[] {"trace", "debug", "info", "warn", "error", "fatal"});
+    loggers.put(slf4j, new String[] {"trace", "debug", "info", "warn", "error"});
+
+    for (Map.Entry<Object, String[]> entry : loggers.entrySet()) {
+      Object logger = entry.getKey();
+      String[] levels = entry.getValue();
       String[] messages = {"Hello from " + logger.getClass().getName()};
-      new Statement(logger, "info", messages).execute();
+      for (String level : levels) {
+        new Statement(logger, level, messages).execute();
+      }
     }
     System.out.println("Hello from STDOUT");
     System.err.println("Hello from STDERR");
