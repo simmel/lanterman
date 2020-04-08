@@ -39,6 +39,18 @@ public class Lanterman extends SpringBootServletInitializer {
       for (String level : levels) {
         new Statement(logger, level, messages).execute();
       }
+      try {
+        throw new RuntimeException("Hello RuntimeException from " + logger.getClass().getName());
+      }
+      catch(Exception ex) {
+        // JUL "level methods" doesn't accept Exception objects.
+        if (logger instanceof java.util.logging.Logger) {
+          new Statement(logger, "log", new Object[] {java.util.logging.Level.SEVERE, "Exception from " + logger.getClass().getName(), ex}).execute();
+        }
+        else {
+          new Statement(logger, levels[levels.length-1], new Object[] {"Exception from " + logger.getClass().getName(), ex}).execute();
+        }
+      }
     }
     System.out.println("Hello from STDOUT");
     System.err.println("Hello from STDERR");
