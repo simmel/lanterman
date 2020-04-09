@@ -1,4 +1,4 @@
-package se.su.it.logging;
+package se.su.it.logging.lanterman;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -10,7 +10,7 @@ import java.util.Map;
 
 @RestController
 @SpringBootApplication
-public class Lanterman extends SpringBootServletInitializer {
+public class WebApplication extends SpringBootServletInitializer {
 
   private static final java.util.logging.Logger JUL = java.util.logging.Logger.getLogger(Thread.currentThread().getStackTrace()[1].getClassName());
   private static final org.apache.commons.logging.Log JCL = org.apache.commons.logging.LogFactory.getLog(Thread.currentThread().getStackTrace()[1].getClassName());
@@ -20,7 +20,7 @@ public class Lanterman extends SpringBootServletInitializer {
 
   @Override
   protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-    return application.sources(Lanterman.class);
+    return application.sources(WebApplication.class);
   }
 
   @RequestMapping("/")
@@ -58,6 +58,6 @@ public class Lanterman extends SpringBootServletInitializer {
   }
 
   public static void main(String[] args) throws Exception {
-    SpringApplication.run(Lanterman.class, args);
+    SpringApplication.run(WebApplication.class, args);
   }
 }
