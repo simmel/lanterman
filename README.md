@@ -32,3 +32,6 @@ $ java -cp 'log4j2/*:build/libs/lanterman-*.jar' -Djava.util.logging.manager=org
 * [X] Create a `tellMeAboutTheSounds` function and call it from:
   * [X] `main` in `CLI`
   * [X] `home` in `Application`
+* Add two shadowJar tasks which downloads all dependencies
+  * [ ] log4j2 with JSON logging
+  * [ ] logback with logstash encoder
