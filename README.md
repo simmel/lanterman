@@ -17,7 +17,12 @@ Currently supported is:
 
 ```terminal
 $ ./gradlew build # A .war is produced in build/libs/
+$ # Run with embedded Tomcat
 $ java -jar build/libs/lanterman*.war
+$ # Deploy in Tomcat
+$ cp build/libs/lanterman*.war ~/tomcat/webapps && ~/tomcat/bin/catalina.sh run
+$ # Run as a stand alone CLI application
+$ java -cp 'log4j2/*:build/libs/lanterman-*.jar' -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager se.su.it.logging.lanterman.CLI
 ```
 
 ### TODO
@@ -25,5 +30,5 @@ $ java -jar build/libs/lanterman*.war
 * Add Java 11+ support or at least verify it
 * [X] Move Spring Boot-stuff out of `Lanterman` to `Application` class
 * [X] Create a `tellMeAboutTheSounds` function and call it from:
-  * `main` in `Lanterman`
+  * [X] `main` in `CLI`
   * [X] `home` in `Application`
