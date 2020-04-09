@@ -23,7 +23,7 @@ $ java -jar build/libs/lanterman*.war
 ### TODO
 
 * Add Java 11+ support or at least verify it
-* Move Spring Boot-stuff out of `Lanterman` to `Application` class
-* Create a `cutDownTrees` function and call it from:
+* [X] Move Spring Boot-stuff out of `Lanterman` to `Application` class
+* [X] Create a `tellMeAboutTheSounds` function and call it from:
   * `main` in `Lanterman`
-  * `home` in `Application`
+  * [X] `home` in `Application`
